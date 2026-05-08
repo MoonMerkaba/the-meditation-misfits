@@ -7,7 +7,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from './ui/tabs';
 import { useAuth } from '../contexts/AuthContext';
 import { Alert, AlertDescription } from './ui/alert';
 import { Mail, Lock, User, AlertCircle, CheckCircle } from 'lucide-react';
-import { SocialAuthButtons } from './SocialAuthButtons';
+// Social auth disabled until providers are configured
+// import { SocialAuthButtons } from './SocialAuthButtons';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -173,7 +174,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                 {loading ? 'Signing in...' : 'Sign In'}
               </Button>
             </form>
-            <SocialAuthButtons />
+            {/* <SocialAuthButtons /> */}
           </TabsContent>
           <TabsContent value="signup" className="space-y-4">
             <form onSubmit={handleSignup} className="space-y-4">
@@ -215,7 +216,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({ isOpen, onClose }) => {
                 {loading ? 'Creating account...' : 'Create Account'}
               </Button>
             </form>
-            <SocialAuthButtons />
+            {/* <SocialAuthButtons /> */}
           </TabsContent>
         </Tabs>
       </DialogContent>
