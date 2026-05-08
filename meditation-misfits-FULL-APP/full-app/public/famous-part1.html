@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Famous – The Meditation Misfits (Styled, Single‑File)</title>
+    <!-- Tailwind (Play CDN) for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                pink: '#ff00bf',
+                dark: '#0b0b0b'
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <!-- React 18 + Babel (for JSX in-browser) -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body class="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black text-white">
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useEffect, useMemo, useRef, useState } = React;
+
+      const cls = (...xs) => xs.filter(Boolean).join(" ");
+      const STORAGE_KEYS = {
+        profile: "famous_profile_v1",
+        progress: "famous_progress_v1",
+        journal: "famous_journal_v1",
+        mixer: "famous_mixer_v1",
+      };
+
+      const SENSES = [
+        { id: "sound", label: "Sound" },
+        { id: "scent", label: "Scent" },
+        { id: "taste", label: "Taste" },
+        { id: "touch", label: "Touch" },
+        { id: "symbolic", label: "Symbolic/Logic" },
+      ];
+
+      const MOODS = [
+        { id: "frazzled", label: "Frazzled" },
+        { id: "stuck", label: "Stuck" },
+        { id: "wired", label: "Wired" },
+        { id: "sad", label: "Sad" },
+        { id: "angry", label: "Angry" },
+        { id: "foggy", label: "Foggy" },
+      ];
+
+      const SOUNDSCAPES = [
+        { id: "rain", label: "Rain" },
+        { id: "ocean", label: "Ocean" },
+        { id: "forest", label: "Forest" },
+        { id: "heartbeat", label: "Heartbeat" },
+        { id: "chimes", label: "Chimes" },
+      ];
+
+      const SOLFEGGIO = ["174", "285", "396", "417", "432", "528", "639", "741", "852", "963"];

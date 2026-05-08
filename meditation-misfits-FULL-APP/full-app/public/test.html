@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deployment Test - Meditation Misfits</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      min-height: 100vh;
+      color: white;
+    }
+    h1 { color: #a855f7; }
+    .success { 
+      background: #22c55e20; 
+      border: 1px solid #22c55e; 
+      padding: 15px; 
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    .info {
+      background: #3b82f620;
+      border: 1px solid #3b82f6;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+    code {
+      background: #00000050;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+    a { color: #a855f7; }
+    .test-links {
+      margin-top: 30px;
+    }
+    .test-links a {
+      display: block;
+      padding: 10px 15px;
+      background: #a855f720;
+      border: 1px solid #a855f7;
+      border-radius: 8px;
+      margin: 10px 0;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .test-links a:hover {
+      background: #a855f740;
+    }
+  </style>
+</head>
+<body>
+  <h1>✅ Deployment Test Successful!</h1>
+  
+  <div class="success">
+    <strong>Good news!</strong> If you can see this page, your app is correctly deployed at <code>/the-meditation-misfits/</code>
+  </div>
+  
+  <div class="info">
+    <strong>Server Info:</strong><br>
+    Current URL: <code id="currentUrl"></code><br>
+    Timestamp: <code id="timestamp"></code>
+  </div>
+  
+  <h2>Test Links</h2>
+  <p>Click these to test if routing is working:</p>
+  
+  <div class="test-links">
+    <a href="/the-meditation-misfits/">→ Main App (index.html)</a>
+    <a href="/the-meditation-misfits/verify">→ Verify Route (tests SPA routing)</a>
+    <a href="/the-meditation-misfits/verify?code=test123">→ Verify with Code (simulates OAuth callback)</a>
+    <a href="/the-meditation-misfits/404.html">→ 404.html directly</a>
+  </div>
+  
+  <h2>Troubleshooting</h2>
+  <ul>
+    <li>If the "Verify Route" link shows a 404 error page from Namecheap, the 404.html redirect isn't set up yet</li>
+    <li>If it redirects to your main website homepage, there may be a redirect rule in your parent directory</li>
+    <li>If it shows the app correctly, routing is working!</li>
+  </ul>
+
+  <script>
+    document.getElementById('currentUrl').textContent = window.location.href;
+    document.getElementById('timestamp').textContent = new Date().toISOString();
+  </script>
+</body>
+</html>

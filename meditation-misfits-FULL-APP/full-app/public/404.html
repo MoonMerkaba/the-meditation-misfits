@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+  <script>
+    // This 404.html page handles SPA routing for Nginx servers
+    // When a route like /the-meditation-misfits/verify?code=xxx is requested,
+    // Nginx serves this 404 page, which then redirects to the main app
+    // while preserving the original URL path and query string
+    
+    (function() {
+      // Get the full path and query string
+      var path = window.location.pathname;
+      var query = window.location.search;
+      var hash = window.location.hash;
+      
+      // Store the redirect path in sessionStorage so the app can read it
+      sessionStorage.setItem('spa-redirect-path', path + query + hash);
+      
+      // Determine the base path (adjust if your app is in a subdirectory)
+      var basePath = '/the-meditation-misfits/';
+      
+      // Redirect to the index.html at the base path
+      // The app will read sessionStorage and navigate to the correct route
+      window.location.replace(basePath + '?redirect=' + encodeURIComponent(path + query + hash));
+    })();
+  </script>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: white;
+    }
+    .loader {
+      text-align: center;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255,255,255,0.3);
+      border-top-color: #a855f7;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <div class="spinner"></div>
+    <p>Redirecting...</p>
+  </div>
+</body>
+</html>
